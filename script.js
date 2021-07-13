@@ -4,11 +4,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-
-
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
@@ -17,6 +13,7 @@ generateBtn.addEventListener("click", writePassword);
 //generateBtn.addEventListener('click', generatePassword);
 
 function generatePassword(){
+ 
 
   var pwdLength = prompt("Enter password length. Must be between 8 and 128 in length.");
 
@@ -56,11 +53,35 @@ function generatePassword(){
   //console.log( pwdLength )
 
   
-
+// if the user does not select any option
   if (!includeUpperCaseLetter && !includeLowercaseLetter && !includeNumbers  && !includeSpecialChar){
     alert("You must select at least one character type!");
     return;
 }
+// storing all my data in array by concatenating seclection
+  var getSelectionArray = []
+  if (includeLowercaseLetter){
+    getSelectionArray =getSelectionArray.concat(lowerCaseArray)
+  }
+  if (includeUpperCaseLetter){
+    getSelectionArray =getSelectionArray.concat(upperCasedArray)
+  }
+  if (includeNumbers){
+    getSelectionArray =getSelectionArray.concat(numbersToGenArray)
+  }
+  if (includeSpecialChar){
+    getSelectionArray =getSelectionArray.concat(specialCharArray)
+  }
 
+
+  var password =[];
+  for (var i = 0; i < pwdLength; i++){
+   var autoGeneratePassword = getSelectionArray[Math.floor(Math.random() * getSelectionArray.length)];
+   password += autoGeneratePassword;
+  }
+
+   console.log (password)
+
+   return password;
 }
 
