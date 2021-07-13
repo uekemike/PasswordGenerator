@@ -15,14 +15,19 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-//generateBtn.addEventListener('click', generatePassword);
+
 
 function generatePassword(){
-
+  var includeLowercaseLetter ="abcdefghijklmnopqrstuvwxyz";
+  var includeUpperCaseLetter ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var includeSpecialChar = "!@#$%^&*()_";
+  var includeNumbers="0123456789";
+  var password =""
+  
   var minLen = 8;
   var maxLen = 128;
   //var isNotAlphabet = true;
-  var pwdLength =prompt("Enter password lenght. Must be between 8 and 128 in lenght")
+  var pwdLength =prompt("Enter password length. Must be between 8 and 128 in length")
 
   //console.log( pwdLength )
  
@@ -31,15 +36,21 @@ function generatePassword(){
   }else if(pwdLength < minLen || pwdLength > maxLen){
     alert("Password lenght cannot be less then 8 or greater than 128")
   }else {
-    var includeLowercaseLetter =   confirm("Would you like to include Lowercase letters")
-    var upperCaseLetter =   confirm("Would you like to include Uppercase letters")
+    includeLowercaseLetter =   confirm("Would you like to include Lowercase letters")
+    includeUpperCaseLetter =   confirm("Would you like to include Uppercase letters")
+    includeSpecialChar =   confirm("Would you like to include special characters")
+    includeNumbers =   confirm("Would you like to include Numbers")
   }
   if(includeLowercaseLetter){
-    
-  }else if(upperCaseLetter){
-    
-  }
+
+  }else if(includeSpecialChar){
+
+  }else if(includeNumbers){
+
+  } else(includeSpecialChar)
 
 }
+
+
 
 //alert("Click OK button to generate password")
