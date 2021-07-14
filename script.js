@@ -67,7 +67,11 @@ function generatePassword(){
     getSelectionArray =getSelectionArray.concat(specialCharArray)
   }
 
-  var password =[];
+passwordGeneratorLoop();
+
+}
+
+function passwordGeneratorLoop(){var password =[];
   for (var i = 0; i < pwdLength; i++){
    var autoGeneratePassword = getSelectionArray[Math.floor(Math.random() * getSelectionArray.length)];
    password += autoGeneratePassword;
@@ -76,5 +80,6 @@ function generatePassword(){
    console.log ("Generated password is " + password)
 
    return password;
-}
+  
+  }
 
